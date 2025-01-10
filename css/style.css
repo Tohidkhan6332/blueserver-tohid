@@ -1,1 +1,161 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #1a202c;
+    color: #e2e8f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+    background-color: #f7fafc;
+    color: #2d3748;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+#log-display, #file-explorer {
+    font-family: 'Courier New', monospace;
+    background-color: #2d3748;
+    border-color: #4a5568;
+    transition: all 0.3s ease;
+}
+
+#log-display:hover, #file-explorer:hover {
+    box-shadow: 0 0 15px rgba(66, 153, 225, 0.5);
+}
+
+#log-display::-webkit-scrollbar, #file-explorer::-webkit-scrollbar {
+    width: 8px;
+}
+
+#log-display::-webkit-scrollbar-track, #file-explorer::-webkit-scrollbar-track {
+    background: #4a5568;
+}
+
+#log-display::-webkit-scrollbar-thumb, #file-explorer::-webkit-scrollbar-thumb {
+    background-color: #718096;
+    border-radius: 4px;
+}
+
+input[type="text"], button, select {
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+button {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px rgba(66, 153, 225, 0.5), 0 0 20px rgba(66, 153, 225, 0.3);
+}
+
+button.bg-blue-600:active {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+button.bg-green-600:active {
+    box-shadow: 0 0 10px rgba(22, 163, 74, 0.5), 0 0 20px rgba(22, 163, 74, 0.3);
+}
+
+button.bg-red-600:active {
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.5), 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+button.bg-yellow-600:active {
+    box-shadow: 0 0 10px rgba(202, 138, 4, 0.5), 0 0 20px rgba(202, 138, 4, 0.3);
+}
+
+button.bg-purple-600:active {
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.5), 0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+.log-entry {
+    padding: 4px 0;
+    border-bottom: 1px solid #4a5568;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#login-interface {
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+#admin-section {
+    scrollbar-width: thin;
+    scrollbar-color: #718096 #2d3748;
+}
+
+#admin-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+#admin-section::-webkit-scrollbar-track {
+    background: #2d3748;
+}
+
+#admin-section::-webkit-scrollbar-thumb {
+    background-color: #718096;
+    border-radius: 4px;
+}
+
+#file-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#file-list li {
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+#file-list li:hover {
+    background-color: rgba(66, 153, 225, 0.1);
+}
+
+#file-list .folder {
+    font-weight: bold;
+}
+
+#file-list .file {
+    padding-left: 20px;
+}
+
+#dark-mode-toggle {
+    transition: all 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    transform: rotate(45deg);
+}
+
+.light-mode #dark-mode-toggle svg {
+    fill: #2d3748;
+}
 
