@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOHID_DEV Advanced</title>
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-900 text-white transition-colors duration-300">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-4xl font-bold">TOHID KHAN</h1>
+            <button id="dark-mode-toggle" class="p-2 bg-gray-700 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="auth-section" class="mb-8 hidden">
+            <input type="text" id="username-input" placeholder="Enter username" class="w-full p-2 mb-4 bg-gray-800 border border-gray-700 rounded">
+            <div class="relative">
+                <input type="password" id="password-input" placeholder="Enter password" class="w-full p-2 mb-2 bg-gray-800 border border-gray-700 rounded">
+                <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-400 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="password-strength" class="mb-2 text-sm"></div>
+            <button id="register-btn" class="w-full p-2 mb-2 bg-blue-600 hover:bg-blue-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Register🐥</button>
+            <button id="login-btn" class="w-full p-2 bg-green-600 hover:bg-green-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Login🐐</button>
+            <div id="login-interface" class="mt-4 p-4 bg-gray-800 border border-gray-700 rounded hidden"></div>
+            <div id="password-requirements" class="mt-2 text-sm text-gray-400 hidden">
+                Password must be at least 7 characters long.
+            </div>
+        </div>
+        <div id="app-section" class="hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-2">Space Usage</h2>
+                    <div id="space-usage" class="text-2xl font-bold text-yellow-500"></div>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-2">Server Runtime</h2>
+                    <div id="server-runtime" class="text-2xl font-bold text-blue-500"></div>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-2">Active Users</h2>
+                    <div id="active-users" class="text-2xl font-bold text-green-500">0</div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div class="md:col-span-2">
+                    <div id="log-display" class="bg-gray-800 border border-gray-700 rounded p-4 h-96 overflow-y-auto mb-4"></div>
+                    <div id="command-section" class="flex space-x-2 mb-4">
+                        <input type="text" id="command-input" placeholder="Enter command 🌹" class="flex-grow p-2 bg-gray-800 border border-gray-700 rounded">
+                        <button id="send-command" class="p-2 bg-purple-600 hover:bg-purple-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Send😈</button>
+                    </div>
+                    <div id="action-buttons" class="flex space-x-2 mb-4">
+                        <button id="list-btn" class="flex-1 p-2 bg-blue-600 hover:bg-blue-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">LIST💦</button>
+                        <button id="clear-btn" class="flex-1 p-2 bg-red-600 hover:bg-red-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">CLEAR👺</button>
+                        <button id="restart-btn" class="flex-1 p-2 bg-green-600 hover:bg-green-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">RESTART♻️</button>
+                    </div>
+                </div>
+                
+            </div>
+            <button id="logout-btn" class="w-full p-2 bg-red-600 hover:bg-red-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Logout🤡</button>
+        </div>
+        <div id="admin-section" class="hidden mt-8">
+            <div class="bg-gray-800 border border-gray-700 rounded p-6 shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-center text-purple-400">MASTERS SPACE</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">System Status</h3>
+                        <div id="cpu-usage" class="mb-2">CPU Usage: <span class="font-bold">0%</span></div>
+                        <div id="memory-usage" class="mb-2">Memory Usage: <span class="font-bold">0%</span></div>
+                        <div id="disk-usage" class="mb-2">Disk Usage: <span class="font-bold">0%</span></div>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">User Statistics</h3>
+                        <div id="total-users" class="mb-2">Total Users: <span class="font-bold">0</span></div>
+                        <div id="active-sessions" class="mb-2">Active Sessions: <span class="font-bold">0</span></div>
+                        <div id="banned-users" class="mb-2">Banned Users: <span class="font-bold">0</span></div>
+                    </div>
+                </div>
+                <div class="mb-4 flex space-x-2">
+                    <button id="get-users-btn" class="flex-1 p-2 bg-yellow-600 hover:bg-yellow-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">Get All Users🐥</button>
+                    <input type="text" id="search-users" placeholder="Search users..." class="flex-1 p-2 bg-gray-700 border border-gray-600 rounded">
+                </div>
+                <div id="user-list" class="bg-gray-700 border border-gray-600 rounded p-4 h-64 overflow-y-auto mb-4">
+                    <div class="text-red-500 font-bold mb-2">⚠️ Warning: Displaying passwords is a severe security risk!</div>
+                </div>
+                <div id="pagination" class="flex justify-center space-x-2 mb-4"></div>
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="user-id-input" placeholder="Enter User ID" class="p-2 bg-gray-700 border border-gray-600 rounded">
+                    <select id="action-select" class="p-2 bg-gray-700 border border-gray-600 rounded">
+                        <option value="">Select Action</option>
+                        <option value="ban">Ban User</option>
+                        <option value="unban">Unban User</option>
+                        <option value="delete">Delete User</option>
+                    </select>
+                    <button id="execute-action-btn" class="col-span-2 p-2 bg-purple-600 hover:bg-purple-700 rounded transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Execute Action</button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <p class="text-gray-400">Contact DEV:</p>
+            <a href="https://wa.me/917849917350" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-green-500 hover:text-green-400 transition-colors">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+              </svg>
+              wa.me/917849917350
+            </a>
+        </div>
+        <div class="mt-4 text-center text-gray-500">
+            <p>© 2025 TOHID KHAN. All rights reserved⁹⁹⁹.</p>
+        </div>
+    </div>
+    <script src="js/socket.io.js"></script>
+    <script src="js/script.js"></script>
+
+
+
+</body></html>
